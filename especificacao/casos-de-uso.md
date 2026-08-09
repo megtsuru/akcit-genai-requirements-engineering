@@ -1,9 +1,9 @@
 # Casos de Uso
 
-> Seguem o modelo do material da disciplina (nome, objetivo, ator(es),
-> pré-condições, fluxo principal, fluxos alternativos, pós-condições).
-> Escolhidos para as duas funcionalidades com maior densidade de regras de
-> negócio e fluxos alternativos (ver `../analise/escolha-artefatos.md`).
+> Estrutura: nome, objetivo, ator(es), pré-condições, fluxo principal,
+> fluxos alternativos, pós-condições. Escolhidos para as duas
+> funcionalidades com maior densidade de regras de negócio e fluxos
+> alternativos (ver `../analise/escolha-artefatos.md`).
 
 ## Caso de Uso 1 — Inscrever-se em Evento
 

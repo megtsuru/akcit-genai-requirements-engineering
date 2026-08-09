@@ -1,9 +1,8 @@
 # Engenharia de Requisitos com GenAI — Sistema de Gestão de Eventos (Eventus)
 
-Atividade prática da Unidade III (Análise e Especificação de Requisitos com
-Inteligência Artificial Generativa). Cenário: sistema de gestão de eventos
-para a empresa fictícia Eventus, a partir de um documento de elicitação
-fornecido no material da disciplina.
+Atividade prática de Análise e Especificação de Requisitos com Inteligência
+Artificial Generativa. Cenário: sistema de gestão de eventos para a empresa
+fictícia Eventus, a partir de um documento de elicitação de requisitos.
 
 ## Estrutura do repositório
 
@@ -33,7 +32,7 @@ fornecido no material da disciplina.
 **Sugestões aceitas:**
 
 - Combinar histórias de usuário + critérios de aceitação para as
-  funcionalidades mais diretas, seguindo o padrão do material (Figura 4).
+  funcionalidades mais diretas.
 - Usar casos de uso só nos dois fluxos mais complexos: **Inscrever-se em
   Evento** e **Cancelar Inscrição**.
 
@@ -44,7 +43,7 @@ fornecido no material da disciplina.
   evitando documentação excessiva para funcionalidades simples.
 - **Descartado:** protótipos de interface — sem ferramenta de design nem
   stakeholders reais para validar, seriam apenas estéticos, sem cumprir a
-  função de validação precoce que o material atribui a esse artefato.
+  função de validação precoce que esse artefato deveria oferecer.
 
 **Por que os artefatos escolhidos foram os mais adequados:** o cenário
 mistura funcionalidades simples com dois fluxos que concentram quase todas

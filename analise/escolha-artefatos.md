@@ -1,13 +1,12 @@
 # Escolha dos Artefatos de Especificação
 
-> Análise comparativa dos artefatos apresentados no material da disciplina
-> (casos de uso, histórias de usuário, critérios de aceitação e protótipos),
-> aplicada ao cenário do Sistema de Gestão de Eventos (Eventus), com apoio
-> de IA generativa e revisão crítica.
+> Análise comparativa entre casos de uso, histórias de usuário, critérios
+> de aceitação e protótipos, aplicada ao cenário do Sistema de Gestão de
+> Eventos (Eventus), com apoio de IA generativa e revisão crítica.
 
 ## Comparativo geral
 
-| Artefato | Quando é mais indicado (segundo o material) | Aplicação ao caso Eventus |
+| Artefato | Quando é mais indicado | Aplicação ao caso Eventus |
 |---|---|---|
 | **Casos de uso** | Projetos mais tradicionais, funcionalidades com múltiplos fluxos alternativos/exceção, quando se quer detalhamento das interações ator↔sistema. Custo de elaboração maior. | Bom para fluxos com muitas variações e regras — ex.: **Inscrever-se em Evento** (grátis x pago, vaga livre x lista de espera, conflito de horário) e **Cancelar Inscrição** (permitido x não permitido, prazo, reembolso). |
 | **Histórias de usuário** | Contextos ágeis, foco no valor entregue, funcionalidades mais simples ou que serão refinadas de forma incremental. Pouco detalhe isoladamente. | Boas para representar as necessidades relatadas literalmente pelos stakeholders (ex.: visualizar eventos, emitir certificado, consultar participantes). |
@@ -16,10 +15,9 @@
 
 ## Recomendação (sugerida pela IA, avaliada criticamente)
 
-Combinar três artefatos, seguindo exatamente o padrão que o material
-descreve na Figura 4 (história de usuário → critérios de aceitação →
-protótipo), mas usando **casos de uso** nos fluxos mais complexos e com
-mais regras de negócio embutidas:
+Combinar três artefatos, usando histórias de usuário complementadas por
+critérios de aceitação como base, e **casos de uso** nos fluxos mais
+complexos e com mais regras de negócio embutidas:
 
 1. **Histórias de usuário** — para as funcionalidades voltadas a
    Participantes, Organizadores, Equipe Financeira e Palestrantes,
@@ -47,13 +45,13 @@ mais regras de negócio embutidas:
    exercício está centrado em análise/especificação textual de requisitos;
    sem uma ferramenta de design e sem validação real com stakeholders, um
    protótipo aqui seria apenas estético, sem o benefício real de validação
-   precoce que o material atribui a esse artefato. Registrado como
-   artefato considerado e descartado (a justificar no README.md).
+   precoce que esse artefato deveria oferecer. Registrado como artefato
+   considerado e descartado (a justificar no README.md).
 
 ### O que foi aceito / modificado da sugestão da IA
 
 - **Aceito:** uso combinado de histórias de usuário + critérios de
-  aceitação, seguindo o padrão do material (Figura 4).
+  aceitação.
 - **Modificado:** a IA inicialmente sugeriu casos de uso para *todas* as
   funcionalidades; optei por restringir casos de uso apenas às duas
   funcionalidades com maior densidade de regras de negócio, e usar
