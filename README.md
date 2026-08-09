@@ -13,42 +13,42 @@ fictícia Eventus, a partir de um documento de elicitação de requisitos.
 
 ## Reflexão sobre o uso da Inteligência Artificial
 
-**Ferramenta de GenAI utilizada:** Claude (Anthropic).
+**Artefatos de especificação produzidos:**
 
-**Como a IA apoiou as diferentes etapas da atividade:**
+- Histórias de usuário
+- Casos de uso
+- Critérios de aceitação
 
-- Extraiu do documento de elicitação uma primeira versão dos requisitos
-  funcionais, regras de negócio e ambiguidades/lacunas (`analise/`), sempre
-  indicando a fala do stakeholder que originou cada item.
-- Como o documento original não trazia requisitos não funcionais, propôs
-  candidatos "a validar" em vez de apresentá-los como definitivos.
-- Comparou os artefatos de especificação possíveis (casos de uso, histórias
-  de usuário, critérios de aceitação, protótipos) e recomendou uma
-  combinação para o cenário Eventus (`analise/escolha-artefatos.md`).
-- Redigiu as histórias de usuário, os casos de uso e os critérios de
-  aceitação (`especificacao/`), referenciando de volta os requisitos e
-  regras de negócio da análise.
+**Por que esses artefatos:**
 
-**Sugestões aceitas:**
+O projeto mistura funcionalidades simples com dois fluxos que concentram
+quase todas as regras de negócio (inscrição no evento e cancelamento da
+inscrição). Casos de uso detalham bem essas variações e histórias de
+usuário mantêm o resto enxuto. Já os critérios de aceitação tornam
+testáveis as regras já definidas; as que ainda dependem de parâmetros
+indefinidos, como prazo de cancelamento e critério de reembolso, ficam
+registradas como premissas a serem validadas.
 
-- Combinar histórias de usuário + critérios de aceitação para as
-  funcionalidades mais diretas.
-- Usar casos de uso só nos dois fluxos mais complexos: **Inscrever-se em
-  Evento** e **Cancelar Inscrição**.
+**Ferramenta de GenAI utilizada:** Claude Code.
 
-**Sugestões descartadas ou modificadas:**
+**Como a IA apoiou a atividade:**
 
-- **Modificado:** a IA sugeriu casos de uso para todas as funcionalidades;
-  restringi a esses dois fluxos e usei histórias de usuário para o resto,
-  evitando documentação excessiva para funcionalidades simples.
-- **Descartado:** protótipos de interface — sem ferramenta de design nem
-  stakeholders reais para validar, seriam apenas estéticos, sem cumprir a
-  função de validação precoce que esse artefato deveria oferecer.
+Usei o Claude Code para extrair requisitos/regras/ambiguidades do
+documento de elicitação, comparar e recomendar os artefatos de
+especificação, e redigir os artefatos escolhidos com rastreabilidade com a
+análise realizada.
 
-**Por que os artefatos escolhidos foram os mais adequados:** o cenário
-mistura funcionalidades simples com dois fluxos que concentram quase todas
-as regras de negócio e ambiguidades (inscrição e cancelamento). Casos de uso
-detalham bem essas variações (grátis x pago, vaga x lista de espera,
-conflito de horário, cancelamento condicional); histórias de usuário mantêm
-o resto enxuto; e critérios de aceitação tornam as regras verificáveis
-objetivamente, servindo de ponte para testes.
+**Sugestões aproveitadas, modificadas ou descartadas:**
+
+- **Aproveitada:** uso combinado de histórias de usuário e critérios de
+  aceitação para as funcionalidades mais diretas.
+- **Modificada:** inicialmente a IA planejou a geração de casos de uso
+  para todas as funcionalidades, mas a decisão final foi manter a
+  descrição de casos de uso apenas para os dois fluxos mais complexos
+  (**Inscrever-se em Evento** e **Cancelar Inscrição**), por terem
+  múltiplas regras de negócio envolvidas e diversos caminhos alternativos;
+  os demais fluxos foram descritos como histórias de usuário. Requisitos
+  não funcionais inferidos pela IA foram mantidos como pendências a
+  validar com os stakeholders.
+- **Descartada:** geração de protótipos, por não fazer parte do escopo da
+  atividade.
