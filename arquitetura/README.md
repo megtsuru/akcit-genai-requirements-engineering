@@ -1,4 +1,4 @@
-# Arquitetura — Discovery de Documentação (Unidade III, ES/ERIAG)
+# Arquitetura — Discovery de Documentação
 
 Discovery de documentação de arquitetura do sistema **Eventus**, praticando
 a abordagem *diagrams as code*, com apoio de GenAI (Claude Code) e a partir
