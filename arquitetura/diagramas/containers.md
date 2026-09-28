@@ -1,9 +1,17 @@
 # Diagrama de Containers — Eventus
 
-> Visão estrutural (inspirada no C4, nível 2), gerada com apoio de GenAI a
-> partir de `../descricao-sistema.md`. Mostra as aplicações/serviços que
-> compõem o Eventus, os quatro papéis que os utilizam e as integrações
+> Visão estrutural (nível C2 — Container, no C4 model), gerada com apoio de
+> GenAI a partir de `../descricao-sistema.md`. Mostra as aplicações/serviços
+> que compõem o Eventus, os quatro papéis que os utilizam e as integrações
 > externas envolvidas.
+>
+> **Nota sobre a sintaxe:** o Mermaid tem um tipo de diagrama `C4Container`
+> nativo, mas seu layout automático não separa bem relações N:1 (três
+> papéis usando o mesmo Painel) nem integrações externas conectadas a um
+> container interno — gerando linhas e rótulos sobrepostos. Por isso o
+> diagrama abaixo usa `graph` (flowchart) com anotações de estilo C4
+> (`[Pessoa]`, `[Container: ...]`, `[Sistema Externo]`), o que permite
+> controlar o layout e manter o diagrama legível.
 
 ```mermaid
 graph TB
