@@ -21,10 +21,10 @@ funcionalidades é deliberada, não uma omissão.
 
 ## Nível de visão
 
-Visão de **containers** (C4 model, nível 2 — `C4Container` do Mermaid): mostra as
-aplicações/serviços que compõem o Eventus e como eles se comunicam entre si
-e com sistemas externos, sem detalhar componentes internos ou tecnologias
-de implementação (não há, na elicitação original, nenhuma decisão de stack
+Visão de **containers** (C4 model, nível 2): mostra as aplicações/serviços
+que compõem o Eventus e como eles se comunicam entre si e com sistemas
+externos, sem detalhar componentes internos ou tecnologias de
+implementação (não há, na elicitação original, nenhuma decisão de stack
 tecnológica).
 
 ## Limites e responsabilidades

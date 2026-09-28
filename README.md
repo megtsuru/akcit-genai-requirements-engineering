@@ -10,6 +10,9 @@ fictícia Eventus, a partir de um documento de elicitação de requisitos.
   dúvidas/lacunas identificados a partir do documento de elicitação.
 - `especificacao/` — artefatos de especificação escolhidos para representar
   os requisitos do sistema.
+- `arquitetura/` — (Unidade III) descrição do sistema e diagramas
+  *as code* (estrutural e comportamental) gerados com apoio de GenAI. Ver
+  [`arquitetura/README.md`](./arquitetura/README.md).
 
 ## Reflexão sobre o uso da Inteligência Artificial
 
