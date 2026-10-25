@@ -15,7 +15,9 @@ fictícia Eventus, a partir de um documento de elicitação de requisitos.
   [`arquitetura/README.md`](./arquitetura/README.md).
 - `desenvolvimento/` — (Unidade II, agente desenvolvedor) especificação de
   uma tarefa, código Python e testes gerados pelo agente, e o
-  [relato do experimento](./desenvolvimento/relato-experimento.md).
+  [relato do experimento](./desenvolvimento/relato-experimento.md) e o
+  [relato de Clean Code](./desenvolvimento/relato-clean-code.md)
+  (geração e revisão com critérios de Clean Code).
 - Agente desenvolvedor, em camadas:
   - [`.claude/agents/desenvolvedor.md`](./.claude/agents/desenvolvedor.md)
     — agente genérico de engenharia de software;

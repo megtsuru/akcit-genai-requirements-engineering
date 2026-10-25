@@ -111,3 +111,10 @@ Base usada nos exemplos (datas em 2026-11-10):
 | E1 | evento com `fim == inicio` | `ValueError` |
 | E2 | evento com `vagas = 0` | `ValueError` |
 | E3 | `p1` em `W1`, já tendo inscrição `LISTA_ESPERA` em `W1` | `ValueError` |
+| E4 | evento com `fim` uma hora antes do `inicio` | `ValueError` |
+| E5 | `p1` em `W1`, já tendo inscrição `CONFIRMADA` em `W1` | `ValueError` |
+| E6 | `p1` em `W2`, já tendo inscrição `PENDENTE_PAGAMENTO` em `W2` | `ValueError` |
+
+*E4–E6 acrescentados em 2026-10-25, a partir da revisão de código: E1 só
+cobria a igualdade de `fim <= inicio`, e E3 só um dos status de "qualquer
+status".*

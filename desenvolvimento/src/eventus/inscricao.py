@@ -24,6 +24,8 @@ class ResultadoInscricao(Enum):
 
 @dataclass(frozen=True)
 class Evento:
+    """Evento com horário, número de vagas e indicação de ser pago."""
+
     id: str
     inicio: datetime
     fim: datetime
@@ -33,6 +35,8 @@ class Evento:
 
 @dataclass(frozen=True)
 class Inscricao:
+    """Inscrição já existente de um participante em um evento."""
+
     participante_id: str
     evento: Evento
     status: StatusInscricao
@@ -70,7 +74,7 @@ def avaliar_inscricao(
             tem inscrição neste evento.
     """
     _validar_evento(evento)
-    _validar_inscricao_inexistente(participante_id, evento, inscricoes)
+    _validar_participante_ainda_nao_inscrito(participante_id, evento, inscricoes)
 
     if _tem_conflito_de_horario(participante_id, evento, inscricoes):
         return ResultadoInscricao.RECUSADA_CONFLITO_HORARIO
@@ -94,7 +98,7 @@ def _validar_evento(evento: Evento) -> None:
         )
 
 
-def _validar_inscricao_inexistente(
+def _validar_participante_ainda_nao_inscrito(
     participante_id: str, evento: Evento, inscricoes: list[Inscricao]
 ) -> None:
     for inscricao in inscricoes:
@@ -111,12 +115,22 @@ def _validar_inscricao_inexistente(
 def _tem_conflito_de_horario(
     participante_id: str, evento: Evento, inscricoes: list[Inscricao]
 ) -> bool:
-    """RN06: só inscrição CONFIRMADA do próprio participante gera conflito."""
+    """RN06: compara o horário do evento com o das inscrições que podem conflitar."""
     return any(
         _horarios_se_sobrepoem(inscricao.evento, evento)
         for inscricao in inscricoes
-        if inscricao.participante_id == participante_id
+        if _pode_gerar_conflito(inscricao, participante_id, evento)
+    )
+
+
+def _pode_gerar_conflito(
+    inscricao: Inscricao, participante_id: str, evento: Evento
+) -> bool:
+    """RN06: só inscrição CONFIRMADA do próprio participante em outro evento."""
+    return (
+        inscricao.participante_id == participante_id
         and inscricao.status is StatusInscricao.CONFIRMADA
+        and inscricao.evento.id != evento.id
     )
 
 
@@ -128,9 +142,13 @@ def _horarios_se_sobrepoem(evento_a: Evento, evento_b: Evento) -> bool:
 def _tem_vaga_disponivel(evento: Evento, inscricoes: list[Inscricao]) -> bool:
     """RN05: compara as vagas do evento com as inscrições que as ocupam."""
     vagas_ocupadas = sum(
-        1
-        for inscricao in inscricoes
-        if inscricao.evento.id == evento.id
-        and inscricao.status in STATUS_QUE_OCUPAM_VAGA
+        1 for inscricao in inscricoes if _ocupa_vaga_no_evento(inscricao, evento)
     )
     return vagas_ocupadas < evento.vagas
+
+
+def _ocupa_vaga_no_evento(inscricao: Inscricao, evento: Evento) -> bool:
+    """RN05: inscrição deste evento com status que ocupa vaga."""
+    return (
+        inscricao.evento.id == evento.id and inscricao.status in STATUS_QUE_OCUPAM_VAGA
+    )

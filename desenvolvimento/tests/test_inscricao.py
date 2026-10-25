@@ -36,7 +36,7 @@ W3 = Evento(
 )
 
 CONFIRMADA = StatusInscricao.CONFIRMADA
-PENDENTE = StatusInscricao.PENDENTE_PAGAMENTO
+PENDENTE_PAGAMENTO = StatusInscricao.PENDENTE_PAGAMENTO
 LISTA_ESPERA = StatusInscricao.LISTA_ESPERA
 
 
@@ -129,7 +129,7 @@ def test_l6_pendente_pagamento_reserva_vaga() -> None:
     inscricoes = [
         _inscricao("p2", W2, CONFIRMADA),
         _inscricao("p3", W2, CONFIRMADA),
-        _inscricao("p4", W2, PENDENTE),
+        _inscricao("p4", W2, PENDENTE_PAGAMENTO),
     ]
     assert avaliar_inscricao("p1", W2, inscricoes) == ResultadoInscricao.LISTA_ESPERA
 
@@ -156,7 +156,7 @@ def test_e1_evento_com_fim_igual_inicio_e_invalido() -> None:
         vagas=3,
         pago=False,
     )
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="deve terminar depois de começar"):
         avaliar_inscricao("p1", evento, [])
 
 
@@ -169,12 +169,39 @@ def test_e2_evento_sem_vagas_e_invalido() -> None:
         vagas=0,
         pago=False,
     )
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="deve ter ao menos 1 vaga"):
         avaliar_inscricao("p1", evento, [])
 
 
 def test_e3_participante_ja_inscrito_no_evento_e_invalido() -> None:
     """E3 — Validação: participante já inscrito (qualquer status) no evento."""
     inscricoes = [_inscricao("p1", W1, LISTA_ESPERA)]
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="já tem inscrição no evento"):
         avaliar_inscricao("p1", W1, inscricoes)
+
+
+def test_e4_evento_com_fim_antes_do_inicio_e_invalido() -> None:
+    """E4 — Validação: evento precisa terminar depois de começar."""
+    evento = Evento(
+        id="E4",
+        inicio=datetime(2026, 11, 10, 10, 0),
+        fim=datetime(2026, 11, 10, 9, 0),
+        vagas=3,
+        pago=False,
+    )
+    with pytest.raises(ValueError, match="deve terminar depois de começar"):
+        avaliar_inscricao("p1", evento, [])
+
+
+def test_e5_participante_ja_confirmado_no_evento_e_invalido() -> None:
+    """E5 — Validação: participante já inscrito (qualquer status) no evento."""
+    inscricoes = [_inscricao("p1", W1, CONFIRMADA)]
+    with pytest.raises(ValueError, match="já tem inscrição no evento"):
+        avaliar_inscricao("p1", W1, inscricoes)
+
+
+def test_e6_participante_ja_pendente_pagamento_no_evento_e_invalido() -> None:
+    """E6 — Validação: participante já inscrito (qualquer status) no evento."""
+    inscricoes = [_inscricao("p1", W2, PENDENTE_PAGAMENTO)]
+    with pytest.raises(ValueError, match="já tem inscrição no evento"):
+        avaliar_inscricao("p1", W2, inscricoes)
