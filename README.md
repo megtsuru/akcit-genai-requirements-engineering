@@ -13,6 +13,16 @@ fictícia Eventus, a partir de um documento de elicitação de requisitos.
 - `arquitetura/` — (Unidade III) descrição do sistema e diagramas
   *as code* (estrutural e comportamental) gerados com apoio de GenAI. Ver
   [`arquitetura/README.md`](./arquitetura/README.md).
+- `desenvolvimento/` — (Unidade II, agente desenvolvedor) especificação de
+  uma tarefa, código Python e testes gerados pelo agente, e o
+  [relato do experimento](./desenvolvimento/relato-experimento.md).
+- Agente desenvolvedor, em camadas:
+  - [`.claude/agents/desenvolvedor.md`](./.claude/agents/desenvolvedor.md)
+    — agente genérico de engenharia de software;
+  - [`guias/stack-python.md`](./guias/stack-python.md) — guia da stack
+    Python (uv, pytest, Ruff, mypy);
+  - [`AGENTS.md`](./AGENTS.md) — contexto do projeto Eventus para agentes
+    de IA (`CLAUDE.md` apenas o importa).
 
 ## Reflexão sobre o uso da Inteligência Artificial
 
