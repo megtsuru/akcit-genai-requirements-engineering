@@ -33,6 +33,10 @@ repositório é usado em um curso: todos os dados são fictícios.
 
 - Identificadores e mensagens em **português**, sem acentos nos nomes
   (`avaliar_inscricao`, `Evento`, `StatusInscricao`).
+- Use nos nomes o vocabulário dos documentos de análise: inscrição,
+  participante, evento, vaga, lista de espera, conflito de horário,
+  pagamento pendente. Não crie sinônimos (ex.: "registro", "slot",
+  "reserva" para inscrição).
 - Regras de negócio são **funções puras**: nada de banco, rede, relógio do
   sistema (`datetime.now()`) ou estado global. Tudo que a função precisa
   entra por parâmetro.
@@ -47,9 +51,11 @@ repositório é usado em um curso: todos os dados são fictícios.
   stakeholders. Não implemente controle de concorrência, cache, segurança
   ou desempenho sem que a tarefa peça.
 - Há regras em aberto que afetam inscrição e cancelamento: prazo de
-  cancelamento, critérios de reembolso, funcionamento da lista de espera e
-  se a vaga fica reservada durante o pagamento pendente (itens 1, 2, 3 e 6
-  de `analise/duvidas-e-lacunas.md`). Se a tarefa depender de alguma delas,
-  trate como regra incompleta: pare e pergunte.
+  cancelamento, critérios de reembolso e funcionamento da lista de espera
+  (itens 1, 2 e 3 de `analise/duvidas-e-lacunas.md`). Se a tarefa depender
+  de alguma delas, trate como regra incompleta: pare e pergunte.
+- Decidido em 2026-10-25 (item 6): a inscrição pendente de pagamento
+  reserva a vaga. O prazo de expiração dessa reserva continua em aberto.
+  A decisão está registrada em `desenvolvimento/especificacao-tarefa.md`.
 - Pagamento e reembolso (RN03, RN04) envolvem dinheiro: qualquer decisão
   sobre eles exige aprovação humana.

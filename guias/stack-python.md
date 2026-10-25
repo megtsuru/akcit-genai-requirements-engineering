@@ -47,6 +47,18 @@
 - Docstrings no estilo Google nas funções públicas: o que faz, argumentos,
   retorno e exceções.
 
+### Legibilidade em Python
+
+- Funções auxiliares internas do módulo começam com `_`.
+- Prefira cláusulas de guarda (`if ...: raise` / `return` cedo) a `if`
+  aninhados.
+- Use `any()`/`all()`/`sum()` com expressões geradoras curtas. Se a
+  condição dentro delas passar de uma linha, extraia uma função com nome.
+- Compreensões com no máximo um `for` e um `if`; acima disso, use um laço
+  ou uma função auxiliar.
+- Conjuntos fixos de valores de negócio viram constantes nomeadas em
+  maiúsculas (ex.: `STATUS_QUE_OCUPAM_VAGA`), não literais repetidos.
+
 ## Testes
 
 - Um arquivo de teste por módulo, em `tests/`.
