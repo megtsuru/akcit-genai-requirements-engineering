@@ -18,6 +18,10 @@ fictícia Eventus, a partir de um documento de elicitação de requisitos.
   [relato do experimento](./desenvolvimento/relato-experimento.md) e o
   [relato de Clean Code](./desenvolvimento/relato-clean-code.md)
   (geração e revisão com critérios de Clean Code).
+- `testes-integracao/` — (Unidade III, testes de integração) tipos de
+  prompt para gerar casos de teste de integração da API de inscrição, as
+  respostas da LLM e a análise. Ver
+  [`testes-integracao/README.md`](./testes-integracao/README.md).
 - Agente desenvolvedor, em camadas:
   - [`.claude/agents/desenvolvedor.md`](./.claude/agents/desenvolvedor.md)
     — agente genérico de engenharia de software;
