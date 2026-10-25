@@ -14,11 +14,17 @@
 | Lint | [Ruff](https://docs.astral.sh/ruff/) | `uv run ruff check src tests` |
 | Formatação | Ruff | `uv run ruff format src tests` |
 | Tipos | [mypy](https://mypy.readthedocs.io/) | `uv run mypy src` |
+| API HTTP (quando a tarefa pedir) | [FastAPI](https://fastapi.tiangolo.com/) | `uv add fastapi` |
+| Cliente HTTP de teste | [httpx](https://www.python-httpx.org/) (via `fastapi.testclient.TestClient`) | `uv add --dev httpx` |
 
 - Rode os comandos a partir da pasta que contém o `pyproject.toml`.
-- O código de produção usa **só a biblioteca padrão**. pytest, Ruff e mypy
-  são dependências de desenvolvimento (`[dependency-groups] dev`) e já
-  estão aprovadas. Qualquer outra dependência exige aprovação.
+- O código de produção usa **só a biblioteca padrão**, exceto FastAPI
+  quando a tarefa for uma API HTTP. pytest, Ruff, mypy e httpx são
+  dependências de desenvolvimento (`[dependency-groups] dev`). Todas as
+  ferramentas desta tabela já estão aprovadas; qualquer outra dependência
+  exige aprovação.
+- Regras de negócio continuam em funções puras, sem depender do FastAPI; a
+  camada HTTP só traduz requisições e respostas.
 - Não use `pip install` direto nem ambientes globais: tudo passa pelo uv.
 
 ## Estrutura
